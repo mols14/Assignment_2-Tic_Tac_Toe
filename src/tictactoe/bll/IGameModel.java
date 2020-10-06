@@ -50,4 +50,6 @@ public interface IGameModel
      * Resets the game to a new game state.
      */
     void newGame();
+
+    void resetBoard();
 }

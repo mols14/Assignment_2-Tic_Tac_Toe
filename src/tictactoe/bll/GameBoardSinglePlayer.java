@@ -1,13 +1,17 @@
 package tictactoe.bll;
 
+import java.util.Arrays;
+
 /**
  * The GameBoardSinglePlayer class is the optional and advanced implementation for the TicTacToe assignment.
  * It is used for games where there are one human player vs. a computer player.
  */
 public class GameBoardSinglePlayer implements IGameModel {
 
-    protected GameBoardSinglePlayer() {
+    private int[][] gameGrid;
 
+    protected GameBoardSinglePlayer() {
+        gameGrid = new int[3][3];
     }
 
     /**
@@ -66,5 +70,11 @@ public class GameBoardSinglePlayer implements IGameModel {
     @Override
     public void newGame() {
         //TODO Implement this method
+    }
+    @Override
+    public void resetBoard() {
+        for (int[] row : gameGrid) {
+            Arrays.fill(row, -1);
+        }
     }
 }

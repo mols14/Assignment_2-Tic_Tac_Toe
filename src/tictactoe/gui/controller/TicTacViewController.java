@@ -59,9 +59,10 @@ public class TicTacViewController implements Initializable {
         choicePlayMode.getItems().addAll(GameBoardFactory.GAME_MODE.values());
         choicePlayMode.getSelectionModel().selectLast();
         currentGameMode = choicePlayMode.getSelectionModel().getSelectedItem();
-
         game = GameBoardFactory.getGameModel(currentGameMode);
         setPlayer();
+        game.resetBoard();
+
     }
 
     /**
@@ -81,6 +82,7 @@ public class TicTacViewController implements Initializable {
                 Button btn = (Button) event.getSource();
                 String xOrO = player == 0 ? "X" : "O";
                 btn.setText(xOrO);
+                game.getWinner();
                 if (game.isGameOver()) {
                     int winner = game.getWinner();
                     displayWinner(winner);
@@ -110,6 +112,7 @@ public class TicTacViewController implements Initializable {
         }
         setPlayer();
         clearBoard();
+
     }
 
     /**
