@@ -130,8 +130,8 @@ public class TicTacViewController implements Initializable {
     private void displayWinner(int winner) {
         String message = "";
         switch (winner) {
-            case -1:
-                message = "It's a draw :-(";
+            case 2:
+                message = "It's a tie";
                 break;
             default:
                 message = "Player " + winner + " wins!!!";
